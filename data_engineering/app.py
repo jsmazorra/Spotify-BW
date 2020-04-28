@@ -53,9 +53,6 @@ def to_dict(self):
         'popularity': self.popularity,
         }
 
-    def __repr__(self):
-        return json.dumps(self.to_dict())
-
     @app.route('/')
     def root():
         return 'DeepTunes API is working!'
