@@ -21,6 +21,8 @@ neighbors = "*"
 init = "*"
 numpy = "*"
 scipy = "*"
+gunicorn = "*"
+psycopg2 = "*"
 
 [requires]
 python_version = "3.8"
