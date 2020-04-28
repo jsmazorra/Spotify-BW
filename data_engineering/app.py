@@ -29,8 +29,8 @@ def create_app():
 
     # Landing Page
 
-@app.route('/')
-def hello_world():
+    @app.route('/')
+    def hello_world():
     return 'Welcome to DeepTunes!'
 
 return app
