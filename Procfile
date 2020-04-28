@@ -1,2 +1,2 @@
-web: gunicorn "app:create_app()"
+web: gunicorn "data_engineering:create_app()"
 app: python -m data_engineering.app

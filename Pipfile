@@ -17,6 +17,7 @@ sklearn = "*"
 numpy = "*"
 scipy = "*"
 gunicorn = "*"
+spotipy = "*"
 
 [requires]
 python_version = "3.8"
