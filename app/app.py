@@ -51,7 +51,7 @@ def create_app():
     # Connects and populates the database with the given structure of class Songs
     engine = create_engine('sqlite:///Spotify_Songs.db')
     Songs.metadata.create_all(engine)
-    file_name = '/Users/johanmazorra/Spotify-BW/app/samplesongs.csv'
+    file_name = 'https://github.com/jsmazorra/Spotify-BW/blob/master/app/samplesongs.csv'
     df = pd.read_csv(file_name)
     db = df.to_sql(con=engine, index_label='id',
                    name=Songs.__tablename__, if_exists='replace')
