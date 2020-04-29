@@ -1,1 +1,1 @@
-web: gunicorn data_engineering:my_app
+web: gunicorn data_engineering.app

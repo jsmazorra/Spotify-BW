@@ -15,8 +15,6 @@ CLIENT_SECRET = 'd88d2e8d841b46a0b7bd963f34208695'
 
 def create_app():
 
-    my_app = create_app()
-
     app = Flask(__name__)
 
     # Spotify API authentication details.
