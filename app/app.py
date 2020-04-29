@@ -10,7 +10,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.preprocessing import MinMaxScaler
 from typing import List, Tuple
-from app.cosine_similarity_recommender import epic_predictor
+from app.cosine_similarity_recommender import epic_predictor, feature_average
 
 DB = SQLAlchemy()
 
@@ -74,5 +74,12 @@ def create_app():
         input_data = data['track_key']
 
         return jsonify(epic_predictor(input_data))
+
+    @app.route('/r', methods=['POST'])
+    def feature():
+        data = request.get_json(force=True)
+        input_data = data['track_key']
+
+        return jsonify(feature_average(input_data))
 
     return app

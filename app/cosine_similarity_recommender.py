@@ -52,3 +52,31 @@ def epic_predictor(input_track_key):
     ten_similar_tracks.append(track)
 
   return ten_similar_tracks
+
+def feature_average(input_track_key):
+  '''
+  This function returns the sum of the features for the ten recommended songs.
+  '''
+  ten_similar_tracks = epic_predictor(input_track_key)
+  # Return a dataframe with only the ten most similar tracks
+  ten_similar_tracks = data[data["track_id"].isin(ten_similar_tracks)]
+  ten_similar_tracks = ten_similar_tracks[['acousticness', 'danceability', 
+                                           'energy', 'instrumentalness', 
+                                           'liveness', 'mode', 
+                                           'speechiness', 'valence']]
+  # Average features of ten tracks                                           
+  acousticness = round(ten_similar_tracks['acousticness'].mean(),2)
+  danceability = round(ten_similar_tracks['danceability'].mean(),2)
+  energy = round(ten_similar_tracks['energy'].mean(),2)
+  instrumentalness = round(ten_similar_tracks['instrumentalness'].mean(),2)
+  liveness = round(ten_similar_tracks['liveness'].mean(),2)
+  mode = round(ten_similar_tracks['mode'].mean(),2)
+  speechiness = round(ten_similar_tracks['speechiness'].mean(),2)
+  valence = round(ten_similar_tracks['valence'].mean(),2)
+  # Store all to "features" variable
+  features = []
+  attributes = [acousticness, danceability, energy, instrumentalness, liveness, mode, speechiness, valence]
+  #features.append(acousticness)
+  for attribute in attributes:
+    features.append(attribute)
+  return features
