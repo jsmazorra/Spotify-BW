@@ -15,9 +15,9 @@ flask-migrate = "*"
 sklearn = "*"
 numpy = "*"
 scipy = "*"
-gunicorn = "*"
 spotipy = "*"
 requests = "*"
+gunicorn = "==19.3.0"
 
 [requires]
 python_version = "3.8"
