@@ -1,6 +1,4 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 import sqlite3
 import pandas as pd
 from flask_sqlalchemy import SQLAlchemy
@@ -9,7 +7,10 @@ import numpy as np
 from sklearn import preprocessing
 from sklearn.neighbors import NearestNeighbors
 from sklearn.model_selection import train_test_split
+from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.preprocessing import MinMaxScaler
 from typing import List, Tuple
+from app.cosine_similarity_recommender import epic_predictor
 
 DB = SQLAlchemy()
 
@@ -66,5 +67,12 @@ def create_app():
     def hello_world():
 
         return 'DeepTunes API is working!'
+
+    @app.route('/m', methods=['POST'])
+    def post_definer():
+        data = request.get_json(force=True)
+        input_data = data['track_key']
+
+        return jsonify(epic_predictor(input_data))
 
     return app
