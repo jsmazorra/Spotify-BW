@@ -10,7 +10,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.preprocessing import MinMaxScaler
 from typing import List, Tuple
-from app.cosine_similarity_recommender import epic_predictor, feature_average
+from app.nearest_neighbors_recommender import epic_predictor, feature_average
 
 def create_app():
 
